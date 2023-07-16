@@ -1,0 +1,16 @@
+.selectedSong-img {
+  width: 80%;
+}
+
+.react-icons-btns {
+  background-color: transparent;
+  font-size: 1.5rem;
+  border: none;
+}
+
+.more-play-mute-btn {
+  margin-top: 2rem;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
