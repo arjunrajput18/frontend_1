@@ -3,25 +3,45 @@ import "./MainContainer.css";
 import { MenuBar } from "../MenuBar/MenuBar";
 import { Music } from "../Music/Music";
 import { useData } from "../../Context/DataContext";
+import ColorThief from 'colorthief';
 
 export const MainContainer = ({ children }) => {
-  const {dataState:{backgroundGradient,selectedSong}}=useData()
+  const { dataState: { backgroundGradient, selectedSong } } = useData();
   const [backgroundGradientval, setBackgroundGradientval] = useState("");
 
-const generateGradientFromImage = (imageUrl) => {
+  const generateGradientFromImage = async (imageUrl) => {
+    const dominantColor = await getDominantColor(imageUrl);
+    const rgbColor = `rgb(${dominantColor.join(", ")})`;
+    return `linear-gradient(to right, ${rgbColor}, #ffffff)`;
+  };
 
-  return `linear-gradient(90deg,rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.7)), url(${imageUrl}) `;
-};
+  const getDominantColor = async (imageUrl) => {
+    const img = new Image();
+    img.crossOrigin = 'Anonymous';
 
+    return new Promise((resolve) => {
+      img.onload = function () {
+        const colorThief = new ColorThief();
+        const dominantColor = colorThief.getColor(img);
+        resolve(dominantColor);
+      };
 
-useEffect(()=>{
-  setBackgroundGradientval(generateGradientFromImage(backgroundGradient))
-},[selectedSong])
+      img.src = imageUrl;
+    });
+  };
 
-
+  useEffect(() => {
+    generateGradientFromImage(backgroundGradient)
+      .then((gradient) => {
+        setBackgroundGradientval(gradient);
+      })
+      .catch((error) => {
+        console.error("Error generating gradient:", error);
+      });
+  }, [selectedSong, backgroundGradient]);
 
   return (
-    <div className="mainContainer" >
+    <div className="mainContainer" style={{ background: backgroundGradientval }}>
       <div>
         <MenuBar />
       </div>
