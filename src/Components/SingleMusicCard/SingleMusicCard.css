@@ -1,10 +1,14 @@
 .song-icon-container {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  border-radius: 56%;
   overflow: hidden;
   margin-right: 10px;
   transition: transform 0.3s ease;
+  -webkit-border-radius: 56%;
+  -moz-border-radius: 56%;
+  -ms-border-radius: 56%;
+  -o-border-radius: 56%;
 }
 
 .song-timing {
@@ -22,19 +26,34 @@
   font-size: 14px;
   color: #5e636c;
   margin-bottom: 5px;
+  font-family: Basier Circle;
+font-size: 14px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0em;
+text-align: left;
+
 }
 
 .song-item {
-  font-size: 24px;
-  margin-bottom: 10px;
-  width: 100%;
+  width: 395px;
+  height: 80px;
+  padding: 16px;
   display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  display: flex;
+  border-radius:8px;
   justify-content: space-between;
   transition: background-color 0.3s ease;
   cursor: pointer;
+  color: white;
+  font-family: 'Basier Circle', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+  -webkit-transition: background-color 0.3s ease;
+  -moz-transition: background-color 0.3s ease;
+  -ms-transition: background-color 0.3s ease;
+  -o-transition: background-color 0.3s ease;
 }
 
 .song-item:hover {
@@ -52,3 +71,26 @@
 .song-item:hover .song-audio {
   opacity: 0.8;
 }
+
+.aciveSong{
+  background-color: #252a33;
+  border-radius:0.6rem ;
+  -webkit-border-radius:0.6rem ;
+  -moz-border-radius:0.6rem ;
+  -ms-border-radius:0.6rem ;
+  -o-border-radius:0.6rem ;
+}
+.song-item:hover{
+  background-color: #252a33;
+  border-radius:0.6rem ;
+  -webkit-border-radius:0.6rem ;
+  -moz-border-radius:0.6rem ;
+  -ms-border-radius:0.6rem ;
+  -o-border-radius:0.6rem ;
+}
+.song-title {
+  color: white;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+

@@ -1,6 +1,4 @@
-.song {
-  padding: 0px 20px 20px 0px;
-}
+
 
 .song-list {
   list-style: none;
@@ -54,13 +52,11 @@
   opacity: 0.9;
 }
 
-.song-title {
-  color: white;
-  font-size: 18px;
-  margin-bottom: 5px;
-}
+
 .heading-menu-name {
   color: white;
   font-size: 24px;
-  margin-bottom: 2rem;
+  margin-bottom: 33px;
+
+  font-weight: bold;
 }
