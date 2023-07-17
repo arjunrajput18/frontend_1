@@ -12,12 +12,14 @@ export const MainContainer = ({ children }) => {
   const generateGradientFromImage = async (imageUrl) => {
     const dominantColor = await getDominantColor(imageUrl);
     const rgbColor = `rgb(${dominantColor.join(", ")})`;
-    return `linear-gradient(to right, ${rgbColor}, #ffffff)`;
+    return `linear-gradient(to right, ${rgbColor}, ${rgbColor})`;
   };
 
+  // linear-gradient(to right, ${rgbColor}, #ffffff})`;
   const getDominantColor = async (imageUrl) => {
     const img = new Image();
     img.crossOrigin = 'Anonymous';
+    // img.src = imageUrl + "?not-from-cache-please";
 
     return new Promise((resolve) => {
       img.onload = function () {
@@ -26,7 +28,7 @@ export const MainContainer = ({ children }) => {
         resolve(dominantColor);
       };
 
-      img.src = imageUrl;
+      img.src = imageUrl + "?not-from-cache-please";
     });
   };
 
@@ -40,8 +42,10 @@ export const MainContainer = ({ children }) => {
       });
   }, [selectedSong, backgroundGradient]);
 
+
+  console.log(backgroundGradientval,"backgroundGradientval")
   return (
-    <div className="mainContainer" style={{ background: backgroundGradientval }}>
+    <div className="mainContainer" style={{ background: backgroundGradientval }} crossOrigin="Anonymous">
       <div>
         <MenuBar />
       </div>
