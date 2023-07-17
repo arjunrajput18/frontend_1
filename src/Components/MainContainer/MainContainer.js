@@ -12,6 +12,7 @@ export const MainContainer = ({ children }) => {
   const generateGradientFromImage = async (imageUrl) => {
     const dominantColor = await getDominantColor(imageUrl);
     const rgbColor = `rgb(${dominantColor.join(", ")})`;
+
     return `linear-gradient(to right, ${rgbColor}, ${rgbColor})`;
   };
 
@@ -29,6 +30,7 @@ export const MainContainer = ({ children }) => {
       };
 
       img.src = imageUrl + "?not-from-cache-please";
+      
     });
   };
 
@@ -45,7 +47,7 @@ export const MainContainer = ({ children }) => {
 
   console.log(backgroundGradientval,"backgroundGradientval")
   return (
-    <div className="mainContainer" style={{ background: backgroundGradientval }} crossOrigin="Anonymous">
+    <div className="mainContainer" style={{ background: backgroundGradientval }}>
       <div>
         <MenuBar />
       </div>

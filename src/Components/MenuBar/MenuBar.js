@@ -6,19 +6,32 @@ import { NavLink } from "react-router-dom";
 export const MenuBar = () => {
   const { loading,data} = usePlaylists();
   
+  const getActiveStyle = ({ isActive }) => {
+    if (isActive) {
+      return {
+        color:"#ffffff"
+      };
+    } else {
+      return {
+        color: "rgba(255, 240, 245, 0.5)", 
+      };
+    }
+  };
+  
+
 
 
   return (
-    <nav className="menu-bar">
+    <div className="menu-bar">
       <ul className="menu-bar-list">
         {data?.getPlaylists?.map((item) => (
           <li key={item?.id} className="menu-bar-item">
-          <NavLink to={`/${item?.id}`}>
+          <NavLink to={`/${item?.id}`} className="menu-title" style={getActiveStyle}>
             {item?.title}
           </NavLink>
           </li>
         ))}
       </ul>
-    </nav>
+    </div>
   );
 };

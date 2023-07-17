@@ -24,4 +24,6 @@
   .menu-bar__item:hover {
     background-color: #e1e1e1;
   }
-  
+  .menu-title{
+    text-decoration: none;
+  }
