@@ -27,3 +27,17 @@
   .menu-title{
     text-decoration: none;
   }
+
+  .main-header{
+    display: flex;
+}
+
+
+
+.header-logo {
+    width: 130px;
+    height: auto; 
+    display: block; 
+    padding: 0rem 0rem 1rem 1rem ; 
+  }
+  

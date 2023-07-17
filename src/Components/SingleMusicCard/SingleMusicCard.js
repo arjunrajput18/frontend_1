@@ -3,13 +3,10 @@ import "./SingleMusicCard.css";
 import { useData } from "../../Context/DataContext";
 
 export const SingleMusicCard = ({ song }) => {
-  const {
-    dataState: { selectedSong },audioRef,
-    dataDispatch,
-  } = useData();
+  const { dataDispatch } = useData();
 
   const handleMusicClick = () => {
-    dataDispatch({type:"PLAYING",payload:true})
+    dataDispatch({ type: "PLAYING", payload: true });
     dataDispatch({ type: "SELECTED_SONG", payload: song });
   };
 

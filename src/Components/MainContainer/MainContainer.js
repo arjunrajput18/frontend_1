@@ -3,10 +3,13 @@ import "./MainContainer.css";
 import { MenuBar } from "../MenuBar/MenuBar";
 import { Music } from "../Music/Music";
 import { useData } from "../../Context/DataContext";
-import ColorThief from 'colorthief';
+import ColorThief from "colorthief";
+
 
 export const MainContainer = ({ children }) => {
-  const { dataState: { backgroundGradient, selectedSong } } = useData();
+  const {
+    dataState: { backgroundGradient, selectedSong },
+  } = useData();
   const [backgroundGradientval, setBackgroundGradientval] = useState("");
 
   const generateGradientFromImage = async (imageUrl) => {
@@ -19,7 +22,7 @@ export const MainContainer = ({ children }) => {
   // linear-gradient(to right, ${rgbColor}, #ffffff})`;
   const getDominantColor = async (imageUrl) => {
     const img = new Image();
-    img.crossOrigin = 'Anonymous';
+    img.crossOrigin = "Anonymous";
     // img.src = imageUrl + "?not-from-cache-please";
 
     return new Promise((resolve) => {
@@ -30,7 +33,6 @@ export const MainContainer = ({ children }) => {
       };
 
       img.src = imageUrl + "?not-from-cache-please";
-      
     });
   };
 
@@ -44,15 +46,17 @@ export const MainContainer = ({ children }) => {
       });
   }, [selectedSong, backgroundGradient]);
 
-
-  console.log(backgroundGradientval,"backgroundGradientval")
+  console.log(backgroundGradientval, "backgroundGradientval");
   return (
-    <div className="mainContainer" style={{ background: backgroundGradientval }}>
-      <div>
-        <MenuBar />
+    <div className=""  style={{ background: backgroundGradientval }} >
+     
+      <div className="mainContainer">
+        <div>
+          <MenuBar />
+        </div>
+        <div>{children}</div>
+        <Music />
       </div>
-      <div>{children}</div>
-      <Music />
     </div>
   );
 };

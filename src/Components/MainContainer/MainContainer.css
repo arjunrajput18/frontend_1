@@ -1,7 +1,7 @@
 @media (min-width: 720px) {
   .mainContainer {
     display: grid;
-    grid-template-columns: 1fr 1.6fr 2fr;
+    grid-template-columns: 1fr 1.2fr 2fr;
     justify-content: center;
     gap: 25px;
     height: 100%;

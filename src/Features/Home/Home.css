@@ -1,14 +1,66 @@
 .song {
-  padding: 20px;
+  padding: 0px 20px 20px 0px;
 }
 
 .song-list {
   list-style: none;
   padding: 0;
 }
+
+.search-box-container {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.search-box {
+  padding: 0.7rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: #4B4B4B;
+  border: none;
+  border-radius: 0.5rem;
+  color: #ffffff;
+}
+
+.search-logo {
+  color: #ffffff;
+  opacity: 0.7; 
+  position: absolute;
+  top: 35%;
+  font-size: 1.3rem;
+  right: 1.8rem;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+.search-box:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #ffffff;
+}
+
+.search-box::placeholder {
+  color: #ffffff;
+  opacity: 0.7;
+}
+
+.search-box:hover {
+  background-color: #616161;
+}
+
+.search-box:hover::placeholder,
+.search-logo:hover {
+  opacity: 0.9;
+}
+
 .song-title {
   color: white;
   font-size: 18px;
   margin-bottom: 5px;
- 
+}
+.heading-menu-name {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 2rem;
 }

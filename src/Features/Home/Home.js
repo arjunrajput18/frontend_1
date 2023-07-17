@@ -1,15 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSongs } from "../../Hooks/useSongs";
 import "./Home.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { SingleMusicCard } from "../../Components/SingleMusicCard/SingleMusicCard";
 import { useData } from "../../Context/DataContext";
+import { usePlaylists } from "../../Hooks/usePlaylists";
+import { BiSearch } from "react-icons/bi";
 
 export const Home = () => {
   const { id } = useParams();
+  const [searchInput, setSearchInput] = useState();
   const navigate = useNavigate();
+  const { data: data1 } = usePlaylists();
   const { data, loading, error } = useSongs(Number(id));
-  console.log(id);
+
+  const activeMenuName = data1?.getPlaylists?.find((list) => list.id == id);
 
   useEffect(() => {
     if (!id) {
@@ -25,11 +30,36 @@ export const Home = () => {
     return <div>Error: {error.message}</div>;
   }
 
+  const transformed = () => {
+    let filteredData = [...data?.getSongs];
+    if (searchInput) {
+      filteredData = filteredData.filter((list) =>
+        list.title.toLowerCase().includes(searchInput.toLowerCase())|| list.artist.toLowerCase().includes(searchInput.toLowerCase())
+      );
+    }
+
+    return filteredData;
+  };
+
+  const handleChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
   return (
     <div className="song">
-      <h1 className="song-title">song</h1>
+      <div className="heading-menu-name">{activeMenuName?.title}</div>
+      <div className="search-box-container">
+        <input
+          type="search"
+          placeholder="Search Song, Artist"
+          className="search-box"
+          value={searchInput}
+          onChange={handleChange}
+        />
+        <BiSearch className="search-logo" />
+      </div>
       <ul className="song-list">
-        {data?.getSongs?.map((song) => (
+        {transformed().map((song) => (
           <SingleMusicCard song={song} key={song.id} />
         ))}
       </ul>

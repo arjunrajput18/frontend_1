@@ -7,9 +7,10 @@ export const DataContext = createContext();
 export const DataContextProvider = ({ children }) => {
   const [dataState, dataDispatch] = useReducer(DataReducer, initialState);
   const { data, loading, error } = useSongs(1);
+
   const audioRef = useRef(null);
   useEffect(() => {
-    dataDispatch({ type: "INTIALIZE_SONG", payload: data?.getSongs[0] });
+    dataDispatch({ type: "INTIALIZE_SONG", payload: data?.getSongs[1] });
   }, [data]);
 
 

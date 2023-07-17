@@ -38,7 +38,10 @@ export const Music = () => {
   }, [selectedSong, playing]);
 
   return (
+    <div className="main-music-container">
     <div>
+
+
       <div className="song-details">
         <h2 className="song-title">{selectedSong?.title}</h2>
         <p className="song-artist">{selectedSong?.artist}</p>
@@ -74,6 +77,7 @@ export const Music = () => {
             <HiMiniSpeakerWave />
           </button>
         </div>
+      </div>
       </div>
     </div>
   );
