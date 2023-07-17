@@ -2,9 +2,9 @@ import React from "react";
 import "./MenuBar.css";
 import { usePlaylists } from "../../Hooks/usePlaylists";
 import { NavLink } from "react-router-dom";
-
+import Logo from "../../Assets/Logo.png";
 export const MenuBar = () => {
-  const { loading,data} = usePlaylists();
+  const { data} = usePlaylists();
   
   const getActiveStyle = ({ isActive }) => {
     if (isActive) {
@@ -23,6 +23,7 @@ export const MenuBar = () => {
 
   return (
     <div className="menu-bar">
+         <img src={Logo} alt='logo' className='header-logo'/>
       <ul className="menu-bar-list">
         {data?.getPlaylists?.map((item) => (
           <li key={item?.id} className="menu-bar-item">
