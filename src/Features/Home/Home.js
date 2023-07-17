@@ -14,7 +14,7 @@ export const Home = () => {
   const { data: data1 } = usePlaylists();
   const { data, loading, error } = useSongs(Number(id));
 
-  const activeMenuName = data1?.getPlaylists?.find((list) => list.id == id);
+  const activeMenuName = data1?.getPlaylists?.find((list) => list.id ===Number(id));
 
   useEffect(() => {
     if (!id) {
