@@ -16,7 +16,7 @@ export const MainContainer = ({ children }) => {
     const dominantColor = await getDominantColor(imageUrl);
     const rgbColor = `rgb(${dominantColor.join(", ")})`;
 
-    return `linear-gradient(to right, ${rgbColor}, ${rgbColor})`;
+    return `linear-gradient(to right, ${rgbColor}, #010203)`;
   };
 
   // linear-gradient(to right, ${rgbColor}, #ffffff})`;

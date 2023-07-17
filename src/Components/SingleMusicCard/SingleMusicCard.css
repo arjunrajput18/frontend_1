@@ -9,7 +9,7 @@
 
 .song-timing {
   font-size: 12px;
-  color: gray;
+  color: #5e636c
 }
 
 .song-icon {
@@ -20,7 +20,7 @@
 
 .song-artist {
   font-size: 14px;
-  color: gray;
+  color: #5e636c;
   margin-bottom: 5px;
 }
 

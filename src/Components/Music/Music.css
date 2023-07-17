@@ -1,5 +1,10 @@
 .selectedSong-img {
   width: 300px;
+  border-radius: 0.6rem;
+  -webkit-border-radius: 0.6rem;
+  -moz-border-radius: 0.6rem;
+  -ms-border-radius: 0.6rem;
+  -o-border-radius: 0.6rem;
 }
 
 .react-icons-btns {
@@ -7,14 +12,31 @@
   color: white;
   font-size: 1.5rem;
   border: none;
+  padding: 0.3rem 0.3rem;
 }
-
+.react-icons-btns-size {
+  font-size: 1.8rem;
+}
+.react-icons-btns-size-2{
+  font-size: 1.1rem;
+  color: #9c9d9f ;
+}
+.heading{
+  margin-bottom: 1rem;
+}
 .more-play-mute-btn {
   margin-top: 2rem;
   width: 300px;
   display: flex;
   justify-content: space-between;
 }
+
+.back-play-next-btn{
+  width: 10rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
 
 .main-music-container{
   margin-top: 3rem;
@@ -23,4 +45,40 @@
   align-items: center;
   
   
+}
+.music-seeker {
+  margin-top: 1rem;
+  width: 100%;
+  height: 3px;
+  background-color: #393a3d;
+}
+
+.seeker-bar {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color:#ffffff 
+}
+
+
+
+
+.round-circle{
+  background-color: #22252a;
+  border-radius: 50%;
+  padding: 0.3rem 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
