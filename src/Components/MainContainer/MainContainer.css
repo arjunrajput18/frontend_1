@@ -4,9 +4,22 @@
     grid-template-columns: 1fr 1fr 2.5fr;
     justify-content: center;
     height: 100%;
-    padding: 28px;
+    padding: 26px;
     margin-bottom: 0rem;
     background-size: cover!important;
   }
-
+.mainContainer-music{
+  position: sticky;
+  top: 8%;
+  display: block;
+  height: fit-content;
+  z-index: 2;
+}
+.mainContainer-menuBar{
+  position: sticky;
+  top: 5%;
+  display: block;
+  height: fit-content;
+  z-index: 2;
+}
 }
