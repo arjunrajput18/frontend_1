@@ -7,6 +7,7 @@
   -o-border-radius: 0.6rem;
 }
 
+
 .react-icons-btns {
   background-color: transparent;
   color: white;
@@ -39,11 +40,11 @@
 
 
 .main-music-container{
-  margin-top: 3rem;
+  margin-top: 3.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   
 }
 .music-seeker {
@@ -67,8 +68,14 @@
   background-color:#ffffff 
 }
 
+.song-title-heading{
+  color: white;
 
-
+}
+.song-artist-heading{
+  font-size: 14px;
+  color: #5e636c;
+}
 
 .round-circle{
   background-color: #22252a;

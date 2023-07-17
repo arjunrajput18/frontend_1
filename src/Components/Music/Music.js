@@ -44,10 +44,10 @@ export const Music = () => {
 
 
       <div className="song-details heading">
-        <h2 className="song-title">{selectedSong?.title}</h2>
-        <p className="song-artist">{selectedSong?.artist}</p>
+        <h2 className="song-title-heading">{selectedSong?.title}</h2>
+        <p className="song-artist-heading">{selectedSong?.artist}</p>
       </div>
-      <div>
+      <div className="img-box">
         <img 
           src={selectedSong?.photo}
           className="selectedSong-img"

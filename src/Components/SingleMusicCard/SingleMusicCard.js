@@ -3,7 +3,7 @@ import "./SingleMusicCard.css";
 import { useData } from "../../Context/DataContext";
 
 export const SingleMusicCard = ({ song }) => {
-  const { dataDispatch } = useData();
+  const { dataState:{selectedSong},dataDispatch } = useData();
 
   const handleMusicClick = () => {
     dataDispatch({ type: "PLAYING", payload: true });
@@ -19,13 +19,13 @@ export const SingleMusicCard = ({ song }) => {
     return formattedTime;
   };
   return (
-    <li key={song._id} className="song-item" onClick={handleMusicClick}>
+    <li key={song._id} className={`song-item ${selectedSong?._id===song?._id && "aciveSong"}`} onClick={handleMusicClick}>
       <div className="song-info">
         <div className="song-icon-container">
           <img src={song.photo} alt={song?.title} className="song-icon" />
         </div>
         <div className="song-details">
-          <h3 className="song-title">{song?.title}</h3>
+          <div className="song-title">{song?.title}</div>
           <p className="song-artist">{song?.artist}</p>
         </div>
       </div>
