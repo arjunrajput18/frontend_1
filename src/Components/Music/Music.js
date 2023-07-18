@@ -14,7 +14,8 @@ export const Music = () => {
     audioRef,
   } = useData();
   const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(50);
+  const [progress, setProgress] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
 
   const handlePlayPause = () => {
     if (isPlaying) {
@@ -25,14 +26,48 @@ export const Music = () => {
     setIsPlaying(!isPlaying);
   };
 
+  const formatTime = (time) => {
+    if (isNaN(time)) {
+      return "00:00";
+    }
+  
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes.toString().padStart(2, "0")}:${seconds
+      .toString()
+      .padStart(2, "0")}`;
+  };
+
   useEffect(() => {
     if (selectedSong && playing) {
       audioRef.current.pause();
       audioRef.current.load();
-      // audioRef.current.play();
+      audioRef.current.play();
       setIsPlaying(true);
     }
   }, [selectedSong, playing]);
+
+  useEffect(() => {
+    const updateProgress = () => {
+      const { currentTime, duration } = audioRef.current;
+      const progressPercent = (currentTime / duration) * 100;
+      setCurrentTime(currentTime);
+      setProgress(progressPercent);
+    };
+
+    audioRef.current.addEventListener("timeupdate", updateProgress);
+
+    return () => {
+      audioRef.current.removeEventListener("timeupdate", updateProgress);
+    };
+  }, [audioRef]);
+
+  const handleSeek = (e) => {
+    const seekTime =
+      (e.nativeEvent.offsetX / e.currentTarget.clientWidth) *
+      audioRef.current.duration;
+    audioRef.current.currentTime = seekTime;
+  };
 
   return (
     <div className="main-menu-box">
@@ -49,8 +84,16 @@ export const Music = () => {
               alt="song-img"
             />
           </div>
+          <div className="time-labels">
+              <span className="current-time">{formatTime(currentTime)}</span>
+              <span className="total-duration">
+                {formatTime(audioRef.current?.duration)}
+              </span>
+            </div>
+
+
           <div className="music-seeker">
-            <div className="seeker-bar">
+            <div className="seeker-bar" onClick={handleSeek}>
               <div
                 className="progress-bar"
                 style={{ width: `${progress}%` }}
