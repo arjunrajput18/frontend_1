@@ -3,6 +3,9 @@
   height: 48px;
   border-radius: 56%;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
   margin-right: 10px;
   transition: transform 0.3s ease;
   -webkit-border-radius: 56%;
@@ -29,7 +32,7 @@
   font-family: Basier Circle;
 font-size: 14px;
 font-weight: 400;
-line-height: 24px;
+/* line-height: 24px; */
 letter-spacing: 0em;
 text-align: left;
 
@@ -37,9 +40,10 @@ text-align: left;
 
 .song-item {
   width: 395px;
-  height: 80px;
-  padding: 16px;
+  padding: 10px;
   display: flex;
+  margin: 0.3rem;
+  /* align-items: center; */
   border-radius:8px;
   justify-content: space-between;
   transition: background-color 0.3s ease;
@@ -48,7 +52,6 @@ text-align: left;
   font-family: 'Basier Circle', sans-serif;
   font-size: 18px;
   font-weight: 400;
-  line-height: 24px;
   letter-spacing: 0;
   -webkit-transition: background-color 0.3s ease;
   -moz-transition: background-color 0.3s ease;
@@ -66,6 +69,7 @@ text-align: left;
 
 .song-info {
   display: flex;
+
 }
 
 .song-item:hover .song-audio {
@@ -94,3 +98,8 @@ text-align: left;
   margin-bottom: 5px;
 }
 
+.song-duration{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

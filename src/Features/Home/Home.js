@@ -14,13 +14,19 @@ export const Home = () => {
   const { data: data1 } = usePlaylists();
   const { data, loading, error } = useSongs(Number(id));
 
-  const activeMenuName = data1?.getPlaylists?.find((list) => list.id ===Number(id));
+  const activeMenuName = data1?.getPlaylists?.find(
+    (list) => list.id === Number(id)
+  );
 
   useEffect(() => {
     if (!id) {
       navigate("/1");
     }
+    window.scrollTo(0, 0);
   }, [id, navigate]);
+
+
+
 
   if (loading) {
     return <div>Loading...</div>;
@@ -33,8 +39,10 @@ export const Home = () => {
   const transformed = () => {
     let filteredData = [...data?.getSongs];
     if (searchInput) {
-      filteredData = filteredData.filter((list) =>
-        list.title.toLowerCase().includes(searchInput.toLowerCase())|| list.artist.toLowerCase().includes(searchInput.toLowerCase())
+      filteredData = filteredData.filter(
+        (list) =>
+          list.title.toLowerCase().includes(searchInput.toLowerCase()) ||
+          list.artist.toLowerCase().includes(searchInput.toLowerCase())
       );
     }
 
@@ -44,6 +52,7 @@ export const Home = () => {
   const handleChange = (e) => {
     setSearchInput(e.target.value);
   };
+
 
   return (
     <div className="song">

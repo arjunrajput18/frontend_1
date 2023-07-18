@@ -5,7 +5,6 @@ import { Music } from "../Music/Music";
 import { useData } from "../../Context/DataContext";
 import ColorThief from "colorthief";
 
-
 export const MainContainer = ({ children }) => {
   const {
     dataState: { backgroundGradient, selectedSong },
@@ -48,14 +47,15 @@ export const MainContainer = ({ children }) => {
 
   console.log(backgroundGradientval, "backgroundGradientval");
   return (
-    <div className=""  style={{ background: backgroundGradientval }} >
-     
+    <div className="" style={{ background: backgroundGradientval }}>
       <div className="mainContainer">
-        <div>
-          <MenuBar />
-        </div>
+      <div className="mainContainer-menuBar">
+        <MenuBar />
+      </div>
         <div>{children}</div>
-        <Music />
+        <div className="mainContainer-music">
+          <Music />
+        </div>
       </div>
     </div>
   );
