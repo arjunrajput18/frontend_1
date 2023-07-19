@@ -31,7 +31,6 @@ export const MainContainer = ({ children }) => {
         const dominantColor = colorThief.getColor(img);
         resolve(dominantColor);
       };
-
       img.src = imageUrl + "?not-from-cache-please";
     });
   };
@@ -49,11 +48,9 @@ export const MainContainer = ({ children }) => {
 
   const handleClick = () => {
     setShowMenu(!showMenu);
-
   };
 
 
-  console.log(showMenu, "backgroundGradientval");
   return (
     <div style={{ background: backgroundGradientval }}>
       <div className="mainContainer">

@@ -15,7 +15,7 @@
 
 .home-children{
   order: 3;
- 
+ padding-top: 3rem;
 }
 .mobile-menu{
   display: flex;
@@ -67,12 +67,12 @@ right: 1%;
     height: fit-content;
     z-index: 2;
     order: 1;
-  
   }
 
   .home-children{
     order: 2;
     margin-left: 0rem;
+    padding-top: 0rem;
   }
   .menuBtn{
     display: none;

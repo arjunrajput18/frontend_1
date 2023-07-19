@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import { BsPlayCircle } from "react-icons/bs";
-import { ImVolumeMute2 } from "react-icons/im";
+import React, { useEffect, useState } from "react";
+
 import { IoPlayBack, IoPlayForward } from "react-icons/io5";
 import { HiMiniSpeakerWave, HiMiniSpeakerXMark } from "react-icons/hi2";
 import { FaPauseCircle } from "react-icons/fa";
@@ -19,7 +18,7 @@ export const Music = () => {
   } = useData();
 
   const { id } = useParams();
-  const { data, loading, error } = useSongs(Number(id));
+  const { data } = useSongs(Number(id));
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -83,7 +82,7 @@ export const Music = () => {
     audioRef.current.currentTime = seekTime;
   };
   const findIndexById = (songId) => {
-    console.log(songId);
+  
     return data?.getSongs.findIndex((item) => item._id === songId);
   };
 
@@ -97,7 +96,7 @@ export const Music = () => {
   };
 
   const handlePlayNext = () => {
-    console.log("a")
+
     const currentIndex = findIndexById(selectedSong._id);
     console.log(currentIndex)
     if (currentIndex< data?.getSongs.length-1) {
@@ -108,7 +107,6 @@ export const Music = () => {
   };
 
   const handleDisabled = () => {
-    console.log("a")
     const indexPosition = findIndexById(selectedSong._id);
     console.log(indexPosition,"a",data?.getSongs.length)
     const isDisabled=(indexPosition===0 || indexPosition===data?.getSongs.length+1) ?true :false
