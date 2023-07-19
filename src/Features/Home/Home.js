@@ -3,7 +3,6 @@ import { useSongs } from "../../Hooks/useSongs";
 import "./Home.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { SingleMusicCard } from "../../Components/SingleMusicCard/SingleMusicCard";
-import { useData } from "../../Context/DataContext";
 import { usePlaylists } from "../../Hooks/usePlaylists";
 import { BiSearch } from "react-icons/bi";
 
@@ -24,9 +23,6 @@ export const Home = () => {
     }
     window.scrollTo(0, 0);
   }, [id, navigate]);
-
-
-
 
   if (loading) {
     return <div>Loading...</div>;
@@ -53,7 +49,6 @@ export const Home = () => {
     setSearchInput(e.target.value);
   };
 
-
   return (
     <div className="song">
       <div className="heading-menu-name">{activeMenuName?.title}</div>
@@ -69,7 +64,7 @@ export const Home = () => {
       </div>
       <ul className="song-list">
         {transformed().map((song) => (
-          <SingleMusicCard song={song} key={song.id} />
+          <SingleMusicCard song={song} key={song._id} />
         ))}
       </ul>
     </div>

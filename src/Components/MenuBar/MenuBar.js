@@ -50,8 +50,8 @@ export const MenuBar = ({ showMenu,handleClick}) => {
         <div className="mobile-container">
           <ul className="menu-bar-list mobile">
             {data?.getPlaylists?.map((item) => (
-              <li className="menu-bar-item ">
-              <Link key={item?.id}  to="songsList"  smooth={true} duration={500} onClick={handleClick}>
+              <li className="menu-bar-item " key={item?.id} >
+              <Link  to="songsList"  smooth={true} duration={500} onClick={handleClick}>
                 <NavLink
                   to={`/${item?.id}`}
                   className="menu-title"
