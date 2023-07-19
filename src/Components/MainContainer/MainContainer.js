@@ -7,6 +7,8 @@ import { useData } from "../../Context/DataContext";
 import ColorThief from "colorthief";
 import Logo from "../../Assets/Logo.png";
 import {FaWindowClose} from "react-icons/fa"
+import { useSongs } from "../../Hooks/useSongs";
+import { Loader } from "../Loader/Loader";
 export const MainContainer = ({ children }) => {
   const {
     dataState: { backgroundGradient, selectedSong },
@@ -21,6 +23,8 @@ export const MainContainer = ({ children }) => {
     return `linear-gradient(to right, ${rgbColor}, #010203)`;
   };
 
+
+  
   const getDominantColor = async (imageUrl) => {
     const img = new Image();
     img.crossOrigin = "Anonymous";
@@ -57,6 +61,7 @@ export const MainContainer = ({ children }) => {
         <div className="mainContainer-menuBar">
           <MenuBar showMenu={showMenu} handleClick={handleClick} />
         </div>
+        {/* {loading && <Loader/>} */}
         <div className="home-children" name="songsList">{children}</div>
         <div className="mainContainer-music">
           <div className="mobile-menu">

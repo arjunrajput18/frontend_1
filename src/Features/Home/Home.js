@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { SingleMusicCard } from "../../Components/SingleMusicCard/SingleMusicCard";
 import { usePlaylists } from "../../Hooks/usePlaylists";
 import { BiSearch } from "react-icons/bi";
+import { Loader } from "../../Components/Loader/Loader";
 
 export const Home = () => {
   const { id } = useParams();
@@ -25,7 +26,7 @@ export const Home = () => {
   }, [id, navigate]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div> <Loader/></div>;
   }
 
   if (error) {

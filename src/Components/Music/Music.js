@@ -18,7 +18,7 @@ export const Music = () => {
   } = useData();
 
   const { id } = useParams();
-  const { data } = useSongs(Number(id));
+  const { data,loading } = useSongs(Number(id));
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -114,8 +114,9 @@ export const Music = () => {
   };
 
   return (
-    <div className="main-menu-box">
-      <div className="main-music-container">
+<div className="main-menu-box">
+
+ <div className="main-music-container">
         <div>
           <div className="song-details heading">
             <h2 className="song-title-heading">{selectedSong?.title}</h2>
