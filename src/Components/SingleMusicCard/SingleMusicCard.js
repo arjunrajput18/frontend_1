@@ -22,7 +22,7 @@ export const SingleMusicCard = ({ song }) => {
     <li key={song._id} className={`song-item ${selectedSong?._id===song?._id && "aciveSong"}`} onClick={handleMusicClick}>
       <div className="song-info">
         <div className="song-icon-container">
-          <img src={song.photo} alt={song?.title} className="song-icon" />
+          <img src={song?.photo} alt={song?.title} className="song-icon" />
         </div>
         <div className="song-details">
           <div className="song-title">{song?.title}</div>

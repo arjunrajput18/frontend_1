@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./MainContainer.css";
 import { MenuBar } from "../MenuBar/MenuBar";
+import { TiThMenu } from "react-icons/ti";
 import { Music } from "../Music/Music";
 import { useData } from "../../Context/DataContext";
 import ColorThief from "colorthief";
+import Logo from "../../Assets/Logo.png";
 
 export const MainContainer = ({ children }) => {
   const {
     dataState: { backgroundGradient, selectedSong },
   } = useData();
+  const [showMenu, setShowMenu] = useState(false);
   const [backgroundGradientval, setBackgroundGradientval] = useState("");
 
   const generateGradientFromImage = async (imageUrl) => {
@@ -18,11 +21,9 @@ export const MainContainer = ({ children }) => {
     return `linear-gradient(to right, ${rgbColor}, #010203)`;
   };
 
-  // linear-gradient(to right, ${rgbColor}, #ffffff})`;
   const getDominantColor = async (imageUrl) => {
     const img = new Image();
     img.crossOrigin = "Anonymous";
-    // img.src = imageUrl + "?not-from-cache-please";
 
     return new Promise((resolve) => {
       img.onload = function () {
@@ -45,15 +46,26 @@ export const MainContainer = ({ children }) => {
       });
   }, [selectedSong, backgroundGradient]);
 
-  console.log(backgroundGradientval, "backgroundGradientval");
+  const handleClick = () => {
+    console.log("sdf");
+    setShowMenu(!showMenu);
+  };
+
+  console.log(showMenu, "backgroundGradientval");
   return (
-    <div className="" style={{ background: backgroundGradientval }}>
+    <div style={{ background: backgroundGradientval }}>
       <div className="mainContainer">
-      <div className="mainContainer-menuBar">
-        <MenuBar />
-      </div>
-        <div>{children}</div>
+        <div className="mainContainer-menuBar">
+          <MenuBar showMenu={showMenu} />
+        </div>
+        <div className="home-children">{children}</div>
         <div className="mainContainer-music">
+          <div className="mobile-menu">
+            <img src={Logo} alt="logo" className="header-logo" />
+            <button onClick={handleClick} className="menuBtn">
+              <TiThMenu />
+            </button>
+          </div>
           <Music />
         </div>
       </div>

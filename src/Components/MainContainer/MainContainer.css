@@ -1,25 +1,77 @@
-@media (min-width: 720px) {
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContainer-music {
+  order: 1;
+  padding-top:3rem ;
+}
+
+.mainContainer-menuBar {
+  order: 2; 
+}
+
+.home-children{
+  order: 3;
+ 
+}
+.mobile-menu{
+  display: flex;
+}
+
+.menuBtn{
+  background-color: inherit;
+  position: fixed;
+  top: 8%;
+  color: white;  
+  font-size: 2rem;
+  border: none;
+right: 1%;
+}
+
+@media (min-width: 1024px) {
   .mainContainer {
     display: grid;
     grid-template-columns: 1fr 1fr 2.5fr;
     justify-content: center;
     height: 100%;
+    gap: 25px;
     padding: 26px;
     margin-bottom: 0rem;
     background-size: cover!important;
   }
-.mainContainer-music{
-  position: sticky;
-  top: 8%;
-  display: block;
-  height: fit-content;
-  z-index: 2;
-}
-.mainContainer-menuBar{
-  position: sticky;
-  top: 5%;
-  display: block;
-  height: fit-content;
-  z-index: 2;
-}
+  .mobile-menu{
+    display: none;
+  }
+ 
+  .mainContainer-music {
+    position: sticky;
+    top: 8%;
+    width: 300px;
+    margin-left: 6rem;
+    height: fit-content;
+    z-index: 2;
+    order: 3;
+    padding-top: 0rem;
+  }
+
+  .mainContainer-menuBar {
+    position: sticky;
+    top: 5%;
+    display: block;
+    height: fit-content;
+    z-index: 2;
+    order: 1;
+  
+  }
+
+  .home-children{
+    order: 2;
+    margin-left: 0rem;
+  }
+  .menuBtn{
+    display: none;
+  }
 }

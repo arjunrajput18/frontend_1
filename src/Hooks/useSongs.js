@@ -19,7 +19,5 @@ export const useSongs = (playlistId) => {
       playlistId,
     },
   });
-  console.log(data);
-
   return { data, loading, error };
 };
