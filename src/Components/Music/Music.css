@@ -1,11 +1,17 @@
+
+
+
+
 .main-music-container{
-  margin-top: 2.3rem;
+  margin-top: 0rem;
+  padding-top: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items:center;
 }
 .selectedSong-img {
-  width: 300px;
+  width: 320px;
+  height: 300px;
   border-radius: 0.6rem;
   -webkit-border-radius: 0.6rem;
   -moz-border-radius: 0.6rem;
@@ -20,6 +26,15 @@
   font-size: 1.5rem;
   border: none;
   padding: 0.3rem 0.3rem;
+  cursor: pointer;
+}
+.react-icons-btns-dots{
+  background-color: transparent;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  padding: 0.3rem 0.3rem;
+  
 }
 .react-icons-btns-size {
   font-size: 1.8rem;
@@ -144,3 +159,13 @@ input.progress-bar::-webkit-slider-thumb {
   color: #999898;
 }
 
+
+
+@media (min-width: 720px){
+  .main-music-container{
+    margin-top: 2.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -18,11 +18,9 @@ export const MainContainer = ({ children }) => {
     return `linear-gradient(to right, ${rgbColor}, #010203)`;
   };
 
-  // linear-gradient(to right, ${rgbColor}, #ffffff})`;
   const getDominantColor = async (imageUrl) => {
     const img = new Image();
     img.crossOrigin = "Anonymous";
-    // img.src = imageUrl + "?not-from-cache-please";
 
     return new Promise((resolve) => {
       img.onload = function () {
@@ -47,15 +45,18 @@ export const MainContainer = ({ children }) => {
 
   console.log(backgroundGradientval, "backgroundGradientval");
   return (
-    <div className="" style={{ background: backgroundGradientval }}>
+    <div style={{ background: backgroundGradientval }}>
       <div className="mainContainer">
-      <div className="mainContainer-menuBar">
-        <MenuBar />
-      </div>
-        <div>{children}</div>
+        <div className="mainContainer-menuBar">
+          <MenuBar />
+        </div>
+        <div className="home-children">{children}</div>
+        
+        {/* <button></button> */}
         <div className="mainContainer-music">
           <Music />
         </div>
+
       </div>
     </div>
   );

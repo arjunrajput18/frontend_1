@@ -1,25 +1,56 @@
-@media (min-width: 720px) {
+/* Mobile layout */
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContainer-music {
+  order: 1; /* Placing the Music component first in the order */
+}
+
+.mainContainer-menuBar {
+  order: 2; /* Placing the MenuBar component second in the order */
+}
+
+.home-children{
+  order: 3;
+ 
+}
+/* Desktop layout */
+@media (min-width: 1024px) {
   .mainContainer {
     display: grid;
     grid-template-columns: 1fr 1fr 2.5fr;
     justify-content: center;
     height: 100%;
+    gap: 25px;
     padding: 26px;
     margin-bottom: 0rem;
     background-size: cover!important;
   }
-.mainContainer-music{
-  position: sticky;
-  top: 8%;
-  display: block;
-  height: fit-content;
-  z-index: 2;
-}
-.mainContainer-menuBar{
-  position: sticky;
-  top: 5%;
-  display: block;
-  height: fit-content;
-  z-index: 2;
-}
+
+  /* Override the mobile styles for .mainContainer-music and .mainContainer-menuBar */
+  .mainContainer-music {
+    position: sticky;
+    top: 8%;
+    width: 300px;
+    margin-left: 6rem;
+    height: fit-content;
+    z-index: 2;
+    order: 3; /* Placing the Music component first in the order on desktop */
+  }
+
+  .mainContainer-menuBar {
+    position: sticky;
+    top: 5%;
+    display: block;
+    height: fit-content;
+    z-index: 2;
+    order: 1; /* Placing the MenuBar component last in the order on desktop */
+  }
+
+  .home-children{
+    order: 2;
+    margin-left: 0rem;
+  }
 }

@@ -1,7 +1,7 @@
 export const initialState = {
   selectedSong: "",
   playing:false,
-  backgroundGradient:""
+  backgroundGradient:"",
 };
 
 export const DataReducer = (state, action) => {
@@ -17,12 +17,15 @@ export const DataReducer = (state, action) => {
       return {
         ...state,
         selectedSong: payload,
-        backgroundGradient:payload.photo
+        backgroundGradient:payload?.photo
       };
       case "PLAYING":return{
         ...state,
         playing: payload,
       }
+
+
+
     default:
       return {
         state,
