@@ -91,6 +91,10 @@ export const Music = () => {
     if (currentIndex) {
       const prevIndex = currentIndex - 1;
       const prevSong = data?.getSongs?.find((item, i) => i === prevIndex);
+      setIsPlaying(true);
+      audioRef?.current.pause();
+      audioRef?.current.load();
+      audioRef?.current.play();
       dataDispatch({ type: "SELECTED_SONG", payload: prevSong });
     } 
   };
@@ -98,10 +102,13 @@ export const Music = () => {
   const handlePlayNext = () => {
 
     const currentIndex = findIndexById(selectedSong._id);
-    console.log(currentIndex)
     if (currentIndex< data?.getSongs.length-1) {
+    setIsPlaying(true);
     const nextIndex = currentIndex < data?.getSongs.length && currentIndex + 1;
     const prevSong = data?.getSongs?.find((item, i) => i === nextIndex);
+    audioRef?.current.pause();
+    audioRef?.current.load();
+    audioRef?.current.play();
     dataDispatch({ type: "SELECTED_SONG", payload: prevSong });
     }  
   };
