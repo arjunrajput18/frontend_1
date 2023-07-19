@@ -2,6 +2,7 @@ export const initialState = {
   selectedSong: "",
   playing:false,
   backgroundGradient:"",
+  
 };
 
 export const DataReducer = (state, action) => {
