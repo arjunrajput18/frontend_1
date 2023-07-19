@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./MainContainer.css";
 import { MenuBar } from "../MenuBar/MenuBar";
 import { TiThMenu } from "react-icons/ti";
@@ -6,7 +6,7 @@ import { Music } from "../Music/Music";
 import { useData } from "../../Context/DataContext";
 import ColorThief from "colorthief";
 import Logo from "../../Assets/Logo.png";
-
+import {FaWindowClose} from "react-icons/fa"
 export const MainContainer = ({ children }) => {
   const {
     dataState: { backgroundGradient, selectedSong },
@@ -46,24 +46,26 @@ export const MainContainer = ({ children }) => {
       });
   }, [selectedSong, backgroundGradient]);
 
+
   const handleClick = () => {
-    console.log("sdf");
     setShowMenu(!showMenu);
+
   };
+
 
   console.log(showMenu, "backgroundGradientval");
   return (
     <div style={{ background: backgroundGradientval }}>
       <div className="mainContainer">
         <div className="mainContainer-menuBar">
-          <MenuBar showMenu={showMenu} />
+          <MenuBar showMenu={showMenu} handleClick={handleClick} />
         </div>
-        <div className="home-children">{children}</div>
+        <div className="home-children" name="songsList">{children}</div>
         <div className="mainContainer-music">
           <div className="mobile-menu">
             <img src={Logo} alt="logo" className="header-logo" />
             <button onClick={handleClick} className="menuBtn">
-              <TiThMenu />
+              {!showMenu ? <TiThMenu /> : <FaWindowClose className="menuBtn-cross"/>}
             </button>
           </div>
           <Music />
