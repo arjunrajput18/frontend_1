@@ -30,6 +30,9 @@
   border: none;
 right: 1%;
 }
+.menuBtn-cross{
+  color: white;
+}
 
 @media (min-width: 1024px) {
   .mainContainer {
