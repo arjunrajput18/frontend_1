@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./MainContainer.css";
 import { MenuBar } from "../MenuBar/MenuBar";
 import { TiThMenu } from "react-icons/ti";
@@ -7,8 +7,7 @@ import { useData } from "../../Context/DataContext";
 import ColorThief from "colorthief";
 import Logo from "../../Assets/Logo.png";
 import {FaWindowClose} from "react-icons/fa"
-import { useSongs } from "../../Hooks/useSongs";
-import { Loader } from "../Loader/Loader";
+
 export const MainContainer = ({ children }) => {
   const {
     dataState: { backgroundGradient, selectedSong },

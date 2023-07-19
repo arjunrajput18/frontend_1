@@ -18,7 +18,7 @@ export const Music = () => {
   } = useData();
 
   const { id } = useParams();
-  const { data,loading } = useSongs(Number(id));
+  const { data } = useSongs(Number(id));
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -82,7 +82,6 @@ export const Music = () => {
     audioRef.current.currentTime = seekTime;
   };
   const findIndexById = (songId) => {
-  
     return data?.getSongs.findIndex((item) => item._id === songId);
   };
 
@@ -92,31 +91,33 @@ export const Music = () => {
       const prevIndex = currentIndex - 1;
       const prevSong = data?.getSongs?.find((item, i) => i === prevIndex);
       dataDispatch({ type: "SELECTED_SONG", payload: prevSong });
-    } 
+    }
   };
 
   const handlePlayNext = () => {
-
     const currentIndex = findIndexById(selectedSong._id);
-    console.log(currentIndex)
-    if (currentIndex< data?.getSongs.length-1) {
-    const nextIndex = currentIndex < data?.getSongs.length && currentIndex + 1;
-    const prevSong = data?.getSongs?.find((item, i) => i === nextIndex);
-    dataDispatch({ type: "SELECTED_SONG", payload: prevSong });
-    }  
+    console.log(currentIndex);
+    if (currentIndex < data?.getSongs.length - 1) {
+      const nextIndex =
+        currentIndex < data?.getSongs.length && currentIndex + 1;
+      const prevSong = data?.getSongs?.find((item, i) => i === nextIndex);
+      dataDispatch({ type: "SELECTED_SONG", payload: prevSong });
+    }
   };
 
   const handleDisabled = () => {
     const indexPosition = findIndexById(selectedSong._id);
-    console.log(indexPosition,"a",data?.getSongs.length)
-    const isDisabled=(indexPosition===0 || indexPosition===data?.getSongs.length+1) ?true :false
+    console.log(indexPosition, "a", data?.getSongs.length);
+    const isDisabled =
+      indexPosition === 0 || indexPosition === data?.getSongs.length + 1
+        ? true
+        : false;
     return isDisabled;
   };
 
   return (
-<div className="main-menu-box">
-
- <div className="main-music-container">
+    <div className="main-menu-box">
+      <div className="main-music-container">
         <div>
           <div className="song-details heading">
             <h2 className="song-title-heading">{selectedSong?.title}</h2>
