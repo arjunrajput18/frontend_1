@@ -3,7 +3,7 @@ import "./App.css";
 // import { CharactersList } from "./Characters/CharactersList";
 import { Home } from "./Features/Home/Home";
 import { MainContainer } from "./Components/MainContainer/MainContainer";
-
+import WorkInProgress from "../src/Assets/WorkInProgress.jpg"
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
 
 
       <Routes>
-        <Route
+        {/* <Route
           path="/"
           element={
             <MainContainer>
@@ -26,7 +26,10 @@ function App() {
               <Home />
             </MainContainer>
           }
-        />
+        /> */}
+
+        <Route path="*" element={<img src={WorkInProgress} alt="Work in Progress" style={{  maxHeight: '100vh',
+    maxWidth: '100%'}}/>}/>
       </Routes>
       {/* <CharactersList /> */}
     </div>
